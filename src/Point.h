@@ -7,7 +7,7 @@ private:
 	RationalNumber x;
 	RationalNumber y;
 public:
-	RationalPoint() {};
+	RationalPoint();
 	RationalPoint(RationalNumber &x, RationalNumber &y);
 	bool equals(const RationalPoint &b) const;
 	string toString() const;
@@ -15,4 +15,8 @@ public:
 
 struct my_hash {
 	size_t operator()(RationalPoint* const& a) const;
+};
+
+struct my_equal {
+	bool operator()(RationalPoint* const& a, RationalPoint* const& b) const;
 };

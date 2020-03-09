@@ -6,3 +6,5 @@ Line::Line(int x1, int y1, int x2, int y2) {
 	b_x = x2;
 	b_y = y2;
 }
+
+Line::Line() {}

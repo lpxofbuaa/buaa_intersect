@@ -9,7 +9,7 @@ private:
 	long long molecule;
 	long long denominator;
 public:
-	RationalNumber() {};
+	RationalNumber();
 	RationalNumber(long long n, long long m);
 	string toString() const;
 	double toDouble() const;

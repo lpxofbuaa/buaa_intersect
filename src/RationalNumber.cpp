@@ -18,6 +18,8 @@ RationalNumber::RationalNumber(long long n, long long m) {
 	this->denominator = before_m / m;
 }
 
+RationalNumber::RationalNumber() {}
+
 string RationalNumber::toString() const {
 	return to_string(molecule) + "/" + to_string(denominator);
 }
