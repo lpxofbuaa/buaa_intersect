@@ -18,14 +18,14 @@ RationalNumber::RationalNumber(long long n, long long m) {
 	this->denominator = before_m / m;
 }
 
-string RationalNumber::toString() {
+string RationalNumber::toString() const {
 	return to_string(molecule) + "/" + to_string(denominator);
 }
 
-double RationalNumber::toDouble() {
+double RationalNumber::toDouble() const {
 	return molecule / denominator;
 }
 
-bool RationalNumber::equals(const RationalNumber &b) {
+bool RationalNumber::equals(const RationalNumber &b) const {
 	return this->molecule * b.denominator == this->denominator * b.molecule;
 }
