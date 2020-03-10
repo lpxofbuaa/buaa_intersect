@@ -19,15 +19,10 @@ int main(int argc, char* argv[])
 		if (argv[3][0] == '-' && argv[3][1] == 'o') {
 			out_file = argv[4];
 		}
-		Reader read(in_file, out_file);
 		GeometryStatistic *statistic = new GeometryStatistic();
+		Reader read(in_file, out_file, statistic);
+		
 		read.read();
-		for (vector<Line>::iterator i = read.lines.begin(); i != read.lines.end(); ++i) {
-			statistic->feed(*i);
-		}
-		for (vector<Circle>::iterator i = read.circles.begin(); i != read.circles.end(); ++i) {
-			statistic->feed(*i);
-		}
 		read.write(statistic->getPointCount());
 		//cout << statistic->getPointCount() << endl;
 		//cout << statistic->rational_points->size() << endl;
