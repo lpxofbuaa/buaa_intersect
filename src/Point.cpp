@@ -38,8 +38,8 @@ UnRationalPoint::UnRationalPoint(double a, double b) {
 }
 
 size_t double_hash::operator()(UnRationalPoint* const& a) const {
-	long long x1 = floor(a->x * 1e10);
-	long long y1 = floor(a->y * 1e10);
+	long long x1 = (long long) floor(a->x * 1e10);
+	long long y1 = (long long) floor(a->y * 1e10);
 	size_t a_hash = hash<long long>{}(x1);
 	size_t b_hash = hash<long long>{}(y1);
 	return a_hash * b_hash;

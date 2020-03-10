@@ -39,7 +39,7 @@ string RationalNumber::toString() const {
 }
 
 double RationalNumber::toDouble() const {
-	return molecule / denominator;
+	return (double) molecule / (double) denominator;
 }
 
 bool RationalNumber::equals(const RationalNumber &b) const {
@@ -79,7 +79,7 @@ RationalNumber RationalNumber::div(int b) const {
 }
 
 RationalNumber RationalNumber::Sqrt() const {
-	return RationalNumber(sqrt(molecule), sqrt(denominator));
+	return RationalNumber((long long) sqrt(molecule), (long long) sqrt(denominator));
 }
 
 bool RationalNumber::canSqrt() const {

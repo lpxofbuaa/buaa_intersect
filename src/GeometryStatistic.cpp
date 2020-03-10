@@ -58,7 +58,7 @@ void GeometryStatistic::line_circle_intersect(Line &l, Circle &c) {
 		if (tmp < 0) {
 			return;
 		}
-		long long q = sqrt(tmp);
+		long long q = (long long) sqrt(tmp);
 		if (q*q == tmp) {
 			RationalNumber x(q, 1);
 			RationalNumber y1(q + c.b, 1);
@@ -67,10 +67,11 @@ void GeometryStatistic::line_circle_intersect(Line &l, Circle &c) {
 			rational_points->insert(new RationalPoint(x, y2));
 		}
 		else {
+			double x = sqrt(tmp);
 			double y1 = sqrt(tmp) + c.b;
 			double y2 = -sqrt(tmp) + c.b;
-			unrational_points->insert(new UnRationalPoint(q, y1));
-			unrational_points->insert(new UnRationalPoint(q, y2));
+			unrational_points->insert(new UnRationalPoint(x, y1));
+			unrational_points->insert(new UnRationalPoint(x, y2));
 		}
 		return;
 	}
