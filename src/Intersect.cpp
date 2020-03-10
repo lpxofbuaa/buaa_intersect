@@ -2,6 +2,7 @@
 #include <iostream>
 #include "GeometryStatistic.h"
 #include "Point.h"
+#include "Reader.h"
 
 
 using namespace std;
@@ -33,9 +34,9 @@ void check(GeometryStatistic *test) {
 	cout << test->rational_points->size() << endl;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-	GeometryStatistic *test = new GeometryStatistic();
+	/*GeometryStatistic *test = new GeometryStatistic();
 	RationalNumber a(4, 3);
 	RationalNumber b(1, 2);
 	RationalNumber c(3, 1);
@@ -49,7 +50,27 @@ int main()
 	for (unordered_set<RationalPoint*, my_hash, my_equal>::iterator i = test->rational_points->begin(); i != test->rational_points->end(); ++i) {
 		//cout << (*i)->toString() << endl;
 	}
-	//check(test);
+	//check(test);*/
+
+	if (argc == 5) {
+		string in_file;
+		string out_file;
+		if (argv[1][0] == '-' && argv[1][1] == 'i') {
+			in_file = argv[2];
+		}
+		if (argv[3][0] == '-' && argv[3][1] == 'o') {
+			out_file = argv[4];
+		}
+		Reader read(in_file, out_file);
+		GeometryStatistic *statistic = new GeometryStatistic();
+		read.read();
+		for (vector<Line>::iterator i = read.lines.begin(); i != read.lines.end(); ++i) {
+			statistic->feed(*i);
+		}
+		read.write(statistic->getPointCount());
+		//cout << statistic->getPointCount() << endl;
+	}
+	//cout << argc << endl;
 }
 
 
