@@ -14,6 +14,7 @@ private:
 public:
 	Reader(string in_file, string out_file);
 	vector<Line> lines;
+	vector<Circle> circles;
 	void read();
 	void write(int n);
 };

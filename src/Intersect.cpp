@@ -67,8 +67,13 @@ int main(int argc, char* argv[])
 		for (vector<Line>::iterator i = read.lines.begin(); i != read.lines.end(); ++i) {
 			statistic->feed(*i);
 		}
+		for (vector<Circle>::iterator i = read.circles.begin(); i != read.circles.end(); ++i) {
+			statistic->feed(*i);
+		}
 		read.write(statistic->getPointCount());
 		//cout << statistic->getPointCount() << endl;
+		cout << statistic->rational_points->size() << endl;
+		cout << statistic->unrational_points->size() << endl;
 	}
 	//cout << argc << endl;
 }

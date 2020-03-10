@@ -17,6 +17,11 @@ void Reader::read() {
 			reader >> x1 >> y1 >> x2 >> y2;
 			lines.push_back(Line(x1, y1, x2, y2));
 		}
+		else if (type == 'C') {
+			int a, b, r;
+			reader >> a >> b >> r;
+			circles.push_back(Circle(a, b, r));
+		}
 	}
 }
 

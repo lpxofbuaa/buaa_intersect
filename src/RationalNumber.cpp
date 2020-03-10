@@ -43,7 +43,7 @@ double RationalNumber::toDouble() const {
 }
 
 bool RationalNumber::equals(const RationalNumber &b) const {
-	return this->molecule * b.denominator == this->denominator * b.molecule;
+	return this->molecule == b.molecule && b.denominator == this->denominator;
 }
 
 RationalNumber RationalNumber::add(RationalNumber &b) const {

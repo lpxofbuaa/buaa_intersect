@@ -23,7 +23,7 @@ string RationalPoint::toString() const {
 }
 
 size_t my_hash::operator()(RationalPoint* const& a) const {
-	return hash<string>{}(a->toString());
+	return hash<string>{}(a->hashstring);
 }
 
 bool my_equal::operator()(RationalPoint* const& a, RationalPoint* const& b) const {
