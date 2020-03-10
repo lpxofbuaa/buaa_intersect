@@ -8,3 +8,10 @@ public:
 	Line();
 	Line(int x1, int y1, int x2, int y2);
 };
+
+class Circle {
+public:
+	int a, b, r;
+	Circle();
+	Circle(int aa, int bb, int cc);
+};

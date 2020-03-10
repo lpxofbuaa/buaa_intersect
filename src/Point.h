@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include <unordered_set>
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -18,10 +19,26 @@ public:
 	string toString() const;
 };
 
+class UnRationalPoint {
+public:
+	double x;
+	double y;
+	UnRationalPoint();
+	UnRationalPoint(double a, double b);
+};
+
 struct my_hash {
 	size_t operator()(RationalPoint* const& a) const;
 };
 
 struct my_equal {
 	bool operator()(RationalPoint* const& a, RationalPoint* const& b) const;
+};
+
+struct double_hash {
+	size_t operator()(UnRationalPoint* const& a) const;
+};
+
+struct double_equal {
+	bool operator()(UnRationalPoint* const& a, UnRationalPoint* const& b) const;
 };
