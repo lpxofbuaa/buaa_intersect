@@ -215,6 +215,10 @@ $$
     - 圆在feed函数中，首先和之前已经加入的所有直线进行一次遍历，调用`line_circle_intersect`函数求解交点，再遍历所有的圆，调用`circle_circle_intersect`求解和圆的交点，并将交点加到相应的set中
 - 当读完输入文件后，读取`Statistic`对象中`getPointCount()`的值，输出到文件，程序结束。
 
+## 代码优化
+
+## 代码说明
+
 
 
 

@@ -12,7 +12,24 @@ namespace UnitTest1
 	TEST_CLASS(UnitTest1)
 	{
 	public:
-		
+			
+		TEST_METHOD(TestMethod0)
+		{
+			// TODO: 在此输入测试代码
+			GeometryStatistic *test = new GeometryStatistic();
+			RationalNumber a(4, 3);
+			RationalNumber b(1, 2);
+			RationalNumber c(6, 3);
+			RationalNumber d(2, -1);
+			RationalPoint p1(a, a);
+			RationalPoint p2(b, b);
+			RationalPoint p3(c, d);
+			Assert::AreEqual(a.toString(), "4/3");
+			Assert::AreEqual(b.toString(), "1/2");
+			Assert::AreEqual(c.toString(), "2/1");
+			Assert::AreEqual(d.toString(), "-2/1");
+		}
+
 		TEST_METHOD(TestMethod1)
 		{
 			// TODO: 在此输入测试代码
@@ -49,6 +66,28 @@ namespace UnitTest1
 			Assert::AreEqual(test->containsPoint(&p2), true);
 			Assert::AreEqual(test->containsPoint(&p3), true);
 		}
+
+		TEST_METHOD(TestMethod3)
+		{
+			// TODO: 在此输入测试代码
+			GeometryStatistic *test = new GeometryStatistic();
+			RationalNumber a(0, 1);
+			RationalNumber b(1, 1);
+			RationalNumber c(1, -1);
+			RationalNumber d(-2, 1);
+			RationalPoint p1(a, a);
+			RationalPoint p2(b, b);
+			RationalPoint p3(a, b);
+			RationalPoint p3(c, a);
+			Line l1(0, 0, 1, 1);
+			Line l2(0, 0, 0, 1);
+			Line l3(0, 0, -1, 0);
+			test->feed(l1);
+			test->feed(l2);
+			test->feed(l3);
+			Assert::AreEqual(test->getPointCount(), 1);
+		}
+
 
 	};
 }
