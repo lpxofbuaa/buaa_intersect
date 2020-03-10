@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include<unordered_set>
 #include<string>
 

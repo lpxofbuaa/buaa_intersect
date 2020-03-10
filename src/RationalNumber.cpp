@@ -1,9 +1,22 @@
+#include "stdafx.h"
 #include "RationalNumber.h"
+#include <iostream>
+
+using namespace std;
+
 
 RationalNumber::RationalNumber(long long n, long long m) {
+	long long sign = (n * m >= 0) ? 1 : -1;
+	n = abs(n);
+	m = abs(m);
 	long long before_n = n;
 	long long before_m = m;
 	bool isBig = n > m;
+	if (n == 0) {
+		molecule = 0;
+		denominator = 1;
+		return;
+	}
 	if (isBig) {
 		long long tmp = n;
 		n = m;
@@ -14,8 +27,9 @@ RationalNumber::RationalNumber(long long n, long long m) {
 		m = n;
 		n = rem;
 	}
-	this->molecule = before_n / m;
+	this->molecule = before_n / m * sign;
 	this->denominator = before_m / m;
+	//cout << toString() << endl;
 }
 
 RationalNumber::RationalNumber() {}

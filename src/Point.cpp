@@ -1,8 +1,15 @@
+#include "stdafx.h"
 #include "Point.h"
+#include <iostream>
+
+using namespace std;
+
 
 RationalPoint::RationalPoint(RationalNumber &x, RationalNumber &y) {
 	this->x = x;
 	this->y = y;
+	this->hashstring = this->toString();
+	//cout << toString() << endl;
 }
 
 RationalPoint::RationalPoint() {}
@@ -16,7 +23,7 @@ string RationalPoint::toString() const {
 }
 
 size_t my_hash::operator()(RationalPoint* const& a) const {
-	return hash<string>{}(a->toString());
+	return hash<string>{}(a->hashstring);
 }
 
 bool my_equal::operator()(RationalPoint* const& a, RationalPoint* const& b) const {
